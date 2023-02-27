@@ -20,6 +20,7 @@
                     <th>Capital del Pais</th>
                     <th>Poblacion Total</th>
                     <th>Codigo Postal</th>
+                    <th colspan="2">Acciones</th>
                     </thead>
                     <tbody>
                         <tr th:each="estado : ${estados}">
@@ -27,7 +28,9 @@
                             <td th:text="${estado.pais}"></td>                            
                             <td th:text="${estado.capital}"></td>                            
                             <td th:text="${estado.poblacion}"></td>                            
-                            <td th:text="${estado.codPostal}"></td>                            
+                            <td th:text="${estado.codPostal}"></td>
+                            <td><a th:href="@{/modificarEstado/} + ${estado.idEstado}">Modificar</a></td>
+                            <td><a th:href="@{/eliminarEstado/} + ${estado.idEstado}">Eliminar</a></td>
                         </tr>
                     </tbody>
                 </table>    
