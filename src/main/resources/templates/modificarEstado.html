@@ -2,6 +2,7 @@
     <head>
         <title>Práctica 01</title>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
         <header th:replace="layout/plantilla :: header"/>
@@ -10,28 +11,27 @@
         <a th:href="@{/}">Regresar</a>
         <br/>
         <br/>
-         <form th:action="@{/guardarEstado}"
+        <form th:action="@{/guardarEstado}"
               method="POST"
               th:object="${estado}">
-             
-            <input type="hidden" name="idEstado" th:field="*{idEstado}" />
             
+            <input type="hidden" name="idEstado" th:field="*{idEstado}"/>
             <label for="continente">Continente</label></br> 
             <input type="text" name="Continente" th:field="*{continente}"/></br>
-            
+
             <label for="pais">Pais</label></br> 
             <input type="text" name="Pais" th:field="*{pais}"/></br>
-            
+
             <label for="capital">Capital</label></br> 
             <input type="text" name="capital" th:field="*{capital}"/></br>
-            
+
             <label for="poblacion">Poblacion</label></br> 
             <input type="text" name="Poblacion" th:field="*{poblacion}"/></br>
-            
+
             <label for="CodPostal">Codigo Postal</label></br> 
             <input type="text" name="codigoPostal" th:field="*{codPostal}"/></br></br>
-            
-            <input type="submit" name="Guardar" value="Guardar" />
+
+            <input type="submit" name="Guardar" value="Guardar"/>
         </form>
         <footer th:replace="layout/plantilla :: footer"/>
     </body>
