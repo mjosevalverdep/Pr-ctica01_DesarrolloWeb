@@ -5,14 +5,36 @@
         <title>Práctica 01</title>
         <meta charset="UTF-8">
     </head>
-    <div class="container">
-        <body>
-                <header th:replace="layout/plantilla :: header"/>
-                    <br/>
-                    <br/>
-                    <h2 class="h2">🌎 Descubre el mundo 🌎</h2>
-                </header>
-                <footer th:replace="layout/plantilla :: footer" />
+        <body class="container">
+            <header th:replace="layout/plantilla :: header"/>
+            <br/>
+            <br/>
+            <h2 class="h2" id="cabeza">🌎 Descubre el mundo 🌎</h2>
+            </header>
+
+            <div th:if="${estados != null and !estados.empty}">
+                <table border="1" id="tabla">
+                    <thead>
+                    <th>Continente</th>
+                    <th>Pais</th>
+                    <th>Capital del Pais</th>
+                    <th>Poblacion Total</th>
+                    <th>Codigo Postal</th>
+                    </thead>
+                    <tbody>
+                        <tr th:each="estado : ${estados}">
+                            <td th:text="${estado.continente}"></td>                            
+                            <td th:text="${estado.pais}"></td>                            
+                            <td th:text="${estado.capital}"></td>                            
+                            <td th:text="${estado.poblacion}"></td>                            
+                            <td th:text="${estado.codPostal}"></td>                            
+                        </tr>
+                    </tbody>
+                </table>    
+            </div>
+            <div th:if="${estados == null or estados.empty}">
+                La lista se encuentra vacia...  
+            </div>
+            <footer th:replace="layout/plantilla :: footer" />
         </body>
-    </div> 
 </html>
