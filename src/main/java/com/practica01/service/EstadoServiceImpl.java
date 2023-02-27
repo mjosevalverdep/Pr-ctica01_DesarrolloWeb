@@ -9,10 +9,16 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class EstadoServiceImpl implements EstadoService {
-    
+
     @Autowired
     EstadoDao estadoDao;
-    
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<estado> getEstados() {
+        return (List<estado>) estadoDao.findAll();
+    }
+
     @Override
     @Transactional(readOnly = true)
     public estado getEstado(estado estado) {
@@ -20,7 +26,6 @@ public class EstadoServiceImpl implements EstadoService {
     }
 
     @Override
-    @Transactional(readOnly = true)
     public void save(estado estado) {
         estadoDao.save(estado);
     }
@@ -30,9 +35,4 @@ public class EstadoServiceImpl implements EstadoService {
     public void delete(estado estado) {
         estadoDao.deleteById(estado.getIdEstado());
     }
-
-    @Override
-    public List<estado> getEstados() {
-        return (List<estado>)estadoDao.findAll();
-    }    
 }
