@@ -1,7 +1,6 @@
 package com.practica01.controller;
 
-import com.practica01.dao.EstadoDao;
-import com.practica01.domain.Estado;
+import com.practica01.domain.estado;
 import com.practica01.service.EstadoService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,38 +14,37 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class IndexController {
     
     @Autowired
-    EstadoDao estadoDao;
     EstadoService EstadoService;
     
     @GetMapping("/")
     public String inicio(Model model) {
         log.info("Estamos Utilizando MVC");
         
-        var estados = estadoDao.findAll();
+        var estados = EstadoService.getEstados();
         model.addAttribute("estados",estados);
         return "index";
     }
     
     @GetMapping("/nuevoEstado")
-    public String nuevoEstado(Estado estado){
+    public String nuevoEstado(estado estado){
         EstadoService.save(estado);
         return "modificarEstado";
     }
     
     @PostMapping("/guardarEstado")
-    public String guardarEstado(Estado estado){
+    public String guardarEstado(estado estado){
         return "redirect:/";
     }
     
     @GetMapping("/modificarEstado/{idEstado}")
-    public String modificarEstado(Estado estado, Model model){
+    public String modificarEstado(estado estado, Model model){
         estado = EstadoService.getEstado(estado);
         model.addAttribute("estado", estado);
         return "modificarEstado";
     }
     
     @GetMapping("/eliminarEstado/{idEstado}")
-    public String eliminarEstado(Estado estado){
+    public String eliminarEstado(estado estado){
         EstadoService.delete(estado);
         return "redirect:/";
     }

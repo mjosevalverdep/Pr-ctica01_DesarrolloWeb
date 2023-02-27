@@ -7,10 +7,9 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
 
-@Data
+@Data //Sirve para poder hacer los gets y sets
 @Entity
-@Table(name = "estado")
-
+@Table(name="estado")
 public class estado {
     
     private static final long serialVersionUID = 1L;
@@ -25,7 +24,7 @@ public class estado {
     int codPostal;
 
     public estado() {
-    }
+}
 
     public estado(String continente, String pais, String capital, String poblacion, int codPostal) {
         this.continente = continente;
@@ -33,6 +32,5 @@ public class estado {
         this.capital = capital;
         this.poblacion = poblacion;
         this.codPostal = codPostal;
-    }
-    
+    }   
 }

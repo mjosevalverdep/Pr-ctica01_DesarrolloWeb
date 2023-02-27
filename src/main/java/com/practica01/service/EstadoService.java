@@ -1,15 +1,15 @@
 package com.practica01.service;
 
-import com.practica01.domain.Estado;
+import com.practica01.domain.estado;
 import java.util.List;
 
 public interface EstadoService {
     
-    public List<Estado> getEstados();
+    public List<estado> getEstados();
     
-    public Estado getEstado(Estado estado);
+    public estado getEstado(estado estado);
     
-    public void save(Estado estado); //para insertar y modificar
+    public void save(estado estado); //para insertar y modificar
    
-    public void delete(Estado estado);
+    public void delete(estado estado);
 }
