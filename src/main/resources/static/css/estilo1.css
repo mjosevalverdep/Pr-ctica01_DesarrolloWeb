@@ -52,6 +52,13 @@ footer{
     width: 40%;
     overflow: auto;
 }
+#menu{
+    position: absolute;
+    top: 14%;
+    left: 46%;
+    font-family: cursive;
+    font-size: 20px;
+}
 
 #cabeza{
     position: absolute;

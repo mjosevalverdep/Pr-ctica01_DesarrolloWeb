@@ -5,39 +5,41 @@
         <title>Práctica 01</title>
         <meta charset="UTF-8">
     </head>
-        <body class="container">
-            <header th:replace="layout/plantilla :: header"/>
-            <br/>
-            <br/>
-            <h2 class="h2" id="cabeza">🌎 Descubre el mundo 🌎</h2>
-            </header>
+    <body class="container">
+        <header th:replace="layout/plantilla :: header"/>
+        <br/>
+        <br/>
+        <h2 class="h2" id="cabeza">🌎 Descubre el mundo 🌎</h2>
+    </header>
 
-            <div th:if="${estados != null and !estados.empty}">
-                <table border="1" id="tabla">
-                    <thead>
-                    <th>Continente</th>
-                    <th>Pais</th>
-                    <th>Capital del Pais</th>
-                    <th>Poblacion Total</th>
-                    <th>Codigo Postal</th>
-                    <th colspan="2">Acciones</th>
-                    </thead>
-                    <tbody>
-                        <tr th:each="estado : ${estados}">
-                            <td th:text="${estado.continente}"></td>                            
-                            <td th:text="${estado.pais}"></td>                            
-                            <td th:text="${estado.capital}"></td>                            
-                            <td th:text="${estado.poblacion}"></td>                            
-                            <td th:text="${estado.codPostal}"></td>
-                            <td><a th:href="@{/modificarEstado/} + ${estado.idEstado}">Modificar</a></td>
-                            <td><a th:href="@{/eliminarEstado/} + ${estado.idEstado}">Eliminar</a></td>
-                        </tr>
-                    </tbody>
-                </table>    
-            </div>
-            <div th:if="${estados == null or estados.empty}">
-                La lista se encuentra vacia...  
-            </div>
-            <footer th:replace="layout/plantilla :: footer" />
-        </body>
+        <a th:href="@{/nuevoEstado}" id="menu">Nuevo Estado</a>
+    <div th:if="${estados != null and !estados.empty}">
+        <table border="1" id="tabla">
+            <thead>
+            <th>Continente</th>
+            <th>Pais</th>
+            <th>Capital del Pais</th>
+            <th>Poblacion Total</th>
+            <th>Codigo Postal</th>
+            <th colspan="2">Acciones</th>
+            </thead>
+            <tbody>
+                <tr th:each="estado : ${estados}">
+                    <td th:text="${estado.continente}"></td>                            
+                    <td th:text="${estado.pais}"></td>                            
+                    <td th:text="${estado.capital}"></td>                            
+                    <td th:text="${estado.poblacion}"></td>                            
+                    <td th:text="${estado.codPostal}"></td>
+                    <td><a th:href="@{/modificarEstado/} + ${estado.idEstado}">Modificar</a></td>
+                    <td><a th:href="@{/eliminarEstado/} + ${estado.idEstado}">Eliminar</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div th:if="${estados == null or estados.empty}">
+        La lista se encuentra vacia...  
+    </div>
+
+    <footer th:replace="layout/plantilla :: footer" />
+</body>
 </html>

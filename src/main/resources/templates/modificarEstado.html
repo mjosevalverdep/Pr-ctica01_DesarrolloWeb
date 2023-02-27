@@ -11,9 +11,7 @@
         <a th:href="@{/}">Regresar</a>
         <br/>
         <br/>
-        <form th:action="@{/guardarEstado}"
-              method="POST"
-              th:object="${estado}">
+        <form th:action="@{/guardarEstado}"method="POST" th:object="${estado}">
             
             <input type="hidden" name="idEstado" th:field="*{idEstado}"/>
             <label for="continente">Continente</label></br> 
