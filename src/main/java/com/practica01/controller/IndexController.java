@@ -18,8 +18,7 @@ public class IndexController {
     
     @GetMapping("/")
     public String inicio(Model model) {
-        log.info("Estamos Utilizando MVC");
-        
+        log.info("Estamos Utilizando MVC");   
         var estados = EstadoService.getEstados();
         model.addAttribute("estados",estados);
         return "index";
@@ -27,12 +26,12 @@ public class IndexController {
     
     @GetMapping("/nuevoEstado")
     public String nuevoEstado(estado estado){
-        EstadoService.save(estado);
         return "modificarEstado";
     }
     
     @PostMapping("/guardarEstado")
     public String guardarEstado(estado estado){
+        EstadoService.save(estado);
         return "redirect:/";
     }
     
